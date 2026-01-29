@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -14,11 +14,10 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Ítens do menu atualizados
   const menuItems = [
     { label: 'Início', href: '#home' },
+    { label: 'A Empresa', href: '#sobre' },
     { label: 'Portfólio', href: '#portfolio' },
-    { label: 'Sobre', href: '#sobre' },
   ];
 
   const scrollToSection = (href) => {
@@ -33,22 +32,17 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="header-content">
-          {/* LOGO do Header */}
           <div className="logo" onClick={() => scrollToSection('#home')}>
             <div className="logo-text">
-              <h1>DH <span>Diferencial Home</span></h1>
+              <h1>DH<span>Diferencial Home</span></h1>
             </div>
           </div>
 
-          {/* Menu Desktop */}
           <nav className="desktop-nav">
             <ul>
               {menuItems.map((item) => (
                 <li key={item.label}>
-                  <button 
-                    onClick={() => scrollToSection(item.href)}
-                    className="nav-link"
-                  >
+                  <button onClick={() => scrollToSection(item.href)} className="nav-link">
                     {item.label}
                   </button>
                 </li>
@@ -58,22 +52,19 @@ const Header = () => {
               className="btn btn-primary"
               onClick={() => scrollToSection('#contato')}
             >
-              <Phone size={18} />
-              Solicitar Orçamento
+              <MessageSquare size={18} />
+              Entre em contato
             </button>
           </nav>
 
-          {/* Menu Mobile Button */}
           <button 
             className="mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Menu Mobile */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav 
@@ -85,10 +76,7 @@ const Header = () => {
               <ul>
                 {menuItems.map((item) => (
                   <li key={item.label}>
-                    <button 
-                      onClick={() => scrollToSection(item.href)}
-                      className="nav-link"
-                    >
+                    <button onClick={() => scrollToSection(item.href)} className="nav-link">
                       {item.label}
                     </button>
                   </li>
@@ -98,8 +86,7 @@ const Header = () => {
                     className="btn btn-primary full-width"
                     onClick={() => scrollToSection('#contato')}
                   >
-                    <Phone size={18} />
-                    Solicitar Orçamento
+                    Entre em contato
                   </button>
                 </li>
               </ul>

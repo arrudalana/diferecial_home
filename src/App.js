@@ -5,7 +5,8 @@ import './App.css';
 // Import dos componentes
 import Header from './components/Header';
 import Hero from './components/Hero';
-// Processo removido daqui
+import Sobre from './components/Sobre';       
+// import Processo from './components/Processo'; <-- REMOVIDO PARA NÃO DUPLICAR
 import Portfolio from './components/Portfolio';
 import ContactForm from './components/ContactForm';
 import WhatsAppButton from './components/WhatsappButton';
@@ -17,7 +18,8 @@ function App() {
     <>
       <Helmet>
         <html lang="pt-br" />
-        <title>DH Diferencial Home - Móveis Planejados</title>
+        <title>Diferencial Home - Móveis Planejados em Cuiabá</title>
+        <meta name="description" content="Móveis planejados desenvolvidos com precisão técnica e alto nível de detalhamento em Cuiabá e região." />
       </Helmet>
       
       <Analytics />
@@ -25,7 +27,7 @@ function App() {
       <div className="App">
         <Header />
         <Hero />
-        {/* Seção Processo foi removida */}
+        <Sobre />      {/* Contém "Quem Somos" e "Abordagem (Verde)" */}
         <Portfolio />
         <ContactForm />
         <Footer />
